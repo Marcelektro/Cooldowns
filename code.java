@@ -3,7 +3,7 @@ public class Cooldown {
   // The Integer is identifier, can be anything else.
   // The Long is the most recent execution of your method.
   
-  public static final HashMap<Integer, Long> pluginMessageCooldown = new HashMap<>();
+  public static final HashMap<Integer, Long> cooldowns = new HashMap<>();
   
   
   // This is your code... For example sending a staff alert...
@@ -13,13 +13,13 @@ public class Cooldown {
     
     int cooldownTime = 1500;
     
-    if (pluginMessageCooldown.containsKey(420)) {
-      long secondsLeft = ((pluginMessageCooldown.get(420)) + cooldownTime) - (System.currentTimeMillis());
+    if (cooldowns.containsKey(420)) {
+      long secondsLeft = ((cooldowns.get(420)) + cooldownTime) - (System.currentTimeMillis());
       if (secondsLeft > 0) {
         return;
       }
     }
-    pluginMessageCooldown.put(420, System.currentTimeMillis());
+    cooldowns.put(420, System.currentTimeMillis());
     
     
     // Your code goes here...
